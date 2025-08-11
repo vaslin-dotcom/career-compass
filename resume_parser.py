@@ -1,6 +1,16 @@
 
+import os
+import re
+from langchain.document_loaders import UnstructuredWordDocumentLoader as docxloader
+from langchain.document_loaders import UnstructuredPDFLoader as pdfloader
+from langchain_groq import ChatGroq
+from langchain.chains import RetrievalQA, LLMChain
+from langchain.vectorstores import FAISS
+from langchain.embeddings import HuggingFaceEmbeddings
+from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.prompts import PromptTemplate
 
-def resume_parser(file_path: str):
+def resume_parser(llm,file_path: str):
     """
     Parse a resume (.pdf or .docx) and return structured info + skills list.
 

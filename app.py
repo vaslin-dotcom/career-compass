@@ -13,12 +13,17 @@ from interviewer import *
 from job_searcher import *
 from job_roles_predictor import *
 
+
+
+
 llm = ChatGroq(
     groq_api_key=GROQ_API_KEY,
     model_name="llama3-8b-8192",
     temperature=0
 )
-if __name__ == "__main__":
+
+
+def job_filters():
     exp = {
     "fresher": [
         "fresher", "graduate program", "trainee", "associate",
@@ -71,3 +76,9 @@ if __name__ == "__main__":
     experience_level, skills, industry, salary_min, salary_max,
     language, company_type
 )
+
+if __name__ == "__main__":
+    output=resume_parser(llm,"/workspaces/career-compass/RESUME_av.docx")
+    skills_list=output['Parsed_Skills_List']
+    evaluation = evaluate_multiple_skills(llm,skills_list)
+    

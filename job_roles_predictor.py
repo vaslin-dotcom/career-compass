@@ -1,3 +1,7 @@
+from langchain_groq import ChatGroq
+from langchain.prompts import PromptTemplate
+from langchain.chains import LLMChain
+import os
 
 
 def job_predictor(result):

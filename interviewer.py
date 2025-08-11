@@ -1,6 +1,16 @@
 
+from langchain_groq import ChatGroq
+from langchain.memory import ConversationSummaryBufferMemory
+from langchain.prompts.chat import (
+    ChatPromptTemplate,
+    SystemMessagePromptTemplate,
+    HumanMessagePromptTemplate
+)
+from langchain.chains import LLMChain
+import os
 
-def create_interview_chain(skill):
+
+def create_interview_chain(llm,skill):
     """Creates a new LLMChain with fresh memory for each skill."""
     memory = ConversationSummaryBufferMemory(
         llm=llm,
@@ -40,9 +50,9 @@ Continue the interview or give your FINAL ASSESSMENT."""
 
     return LLMChain(llm=llm, prompt=chat_prompt, memory=memory, verbose=False)
 
-def run_interview(skill):
+def run_interview(llm,skill):
     """Runs the interview for a given skill and returns the final assessment text."""
-    chain = create_interview_chain(skill)
+    chain = create_interview_chain(llm,skill)
     print(f"\n🤖 Interview Bot Ready for {skill}! Type 'quit' anytime.\n")
 
     user_input = "Hello"
@@ -50,21 +60,21 @@ def run_interview(skill):
         result = chain.invoke({"input": user_input, "skill": skill})
         bot_reply = result["text"]
 
-        print("\n🤖", bot_reply)
+        print("\n🤖", bot_reply) 
 
         if "FINAL ASSESSMENT" in bot_reply.upper():
             return bot_reply.strip()  # Return only final assessment
 
         user_input = input("You: ")
         if user_input.lower() in ["quit", "exit"]:
-            print("\n[Interview ended by user]")
+            print("\n[Interview ended by user]"))
             return None
 
-def evaluate_multiple_skills(skills_list):
+def evaluate_multiple_skills(llm,skills_list):
     """Loops through skills, runs interviews, stores results in dict."""
     evaluations = {}
     for skill in skills_list:
-        final_result = run_interview(skill)
+        final_result = run_interview(llm,skill)
         if final_result:
             evaluations[skill] = final_result
     return evaluations
