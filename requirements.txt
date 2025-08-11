@@ -1,3 +1,4 @@
+python-dotenv
 absl-py==1.4.0
 accelerate==1.9.0
 aiofiles==24.1.0
