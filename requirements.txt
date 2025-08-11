@@ -15,11 +15,3 @@ sentence-transformers
 huggingface_hub
 requests
 
-gTTS
-pydub
-SpeechRecognition
-PyAudio
-transformers
-soundfile
-numpy
-
