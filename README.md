@@ -35,7 +35,7 @@ Since API keys cannot be exposed publicly and live deployment would require a se
 
 1. **Run `app.py`**
    - Loads sample resume data (or user-provided input)
-   - Conducts interview on the skills collected from resume(which are not explitely mentioned also,such as from projects,achievements etc) using Groq LLaMA
+   - Conducts interview on the skills collected from resume(which are not explicitely mentioned also,such as from projects,achievements etc) using Groq LLaMA
    - Sends it to the Groq LLaMA 3 model via LangChain
    - Prints predicted job roles with confidence scores
 
