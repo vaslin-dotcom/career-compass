@@ -82,9 +82,13 @@ AI Researcher – 0.85
 
 
 **Step 2 – Job Search Results:**(fill the details based on above outcomes and other requirements in job_searcher.py)
+
 Title: Machine Learning Engineer
+
 Company: ABC Tech
+
 Location: Bangalore, India
+
 Link: https://example.com/job123
 
 
