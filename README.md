@@ -13,7 +13,7 @@ I am actively working on integrating a frontend UI(with voice based interaction)
 ### 1. **LLM Integration**
 - **Model:** LLaMA 3 8B (hosted on Groq API)  
 - **Usage:**  
-  - Given extracted resume text, the LLM predicts suitable job roles based on skills, experience, and domain knowledge.  
+  - Given extracted resume text, the LLM conducts a friendly interview and give feedback to the user,then predicts suitable job roles based on interview.  
   - Output includes multiple job roles ranked by relevance with associated confidence scores.  
 - **Tech Used:**  
   - **LangChain** – for prompt construction and model interaction  
@@ -63,6 +63,7 @@ This separation allows you to see the **core logic** without exposing sensitive 
 
 I am actively working on:
 - **Frontend Integration** – Building an interactive UI with Streamlit/Vue.js
+- **Voice based interaction**- Running a voce based interview
 - **Secure Deployment** – Running LLM on my own server instead of using Groq API for scalability
 - **Automated Pipeline** – Passing predicted roles directly into the job search module without manual entry
 - **User Authentication & Rate Limiting** – For safe public access
