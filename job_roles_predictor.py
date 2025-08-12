@@ -4,7 +4,7 @@ from langchain.chains import LLMChain
 import os
 
 
-def job_predictor(result):
+def job_predictor(llm,result):
   prompt=PromptTemplate.from_template("""
 You are an AI career advisor.
 
@@ -29,3 +29,5 @@ Candidate Skill Summary:
   chain=LLMChain(llm=llm,prompt=prompt)
   return chain.run({"result":result})
 
+job_roles=job_predictor(evaluation)
+print(job_roles)
