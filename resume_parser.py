@@ -76,7 +76,7 @@ def resume_parser(llm,file_path: str):
         Experience: {experience}
         Achievements: {achievements}
 
-        Output format: A valid Python list of skills (strings), without explanation.
+        Output format: A valid Python list of skills (strings), without explanation.strt with'['  and end with ']'
         """
     )
 
